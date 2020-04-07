@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         todoAPI = new TodoAPI();
         iniciarListView();
         iniciarAcaoBotaoAdd();
-
     }
 
     @Override
@@ -55,32 +55,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,FormActivity.class);
                 startActivity(i);
-            }
-        });
-    }
-
-    private void adicionarNovoTodo(){
-        EditText et_descricao = findViewById(R.id.input_form_descricao);
-        EditText et_prioridade = findViewById(R.id.input_form_prioridade);
-
-        FloatingActionButton button = findViewById(R.id.activity_main_floatBT);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        Todo todo = new Todo();
-           //             todo.setDescricao(/*campo texto*/);
-             //           todo.setPrioridade(/*/campo texto*/);
-                        try {
-                            todoAPI.inserirTodo(todo);
-                            fillArrayTest();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
             }
         });
     }
