@@ -1,15 +1,16 @@
 package com.example.exemplo.model;
 
 public class Todo {
-    Long Id;
+    Long id;
     String descricao;
+    String prioridade;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -28,5 +29,5 @@ public class Todo {
         this.prioridade = prioridade;
     }
 
-    String prioridade;
+
 }
